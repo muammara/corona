@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "install.packages(\"googleVis\")\nlibrary(googleVis)\nwd='C:/Users/muamma/Documents/python/Coronavirus'\nsetwd(wd)\nflagfilename<-'coronafilename'  #Storing the name of the latest file\nfilename<- readChar(flagfilename, file.info(flagfilename)$size)\n\nprint(filename)\n\nfieldsformat=c(\"numeric\", \"character\",\"factor\",\"factor\",\"factor\",\"numeric\",\"numeric\",\"factor\",\"factor\",\"numeric\",\"numeric\")\n\nC<-read.csv(filename,sep=\",\",colClasses=fieldsformat)\n\nC$DateRep <- as.Date(C$DateRep,format=\"%Y-%m-%d\")\nC2 <-gvisMotionChart(data=C,idvar=\"Countries.and.territories\" ,xvar = \"TotalDeath\", yvar = \"TotalCases\",\n                     sizevar = \"TotalDeath\",timevar=\"DateRep\",options=list(width=1200,height=600))\nplot(C2)\ncat(C2$html$chart, file=\"tmp.html\")\n\n",
+    "created" : 1584835797964.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2758633276",
+    "id" : "CCE24431",
+    "lastKnownWriteTime" : 1584835740,
+    "last_content_update" : 1584835740,
+    "path" : "~/python/Coronavirus/coronaVis.R",
+    "project_path" : "coronaVis.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
